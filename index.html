@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-------------------------------------------ALLMÄNT-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
+    
+    <title>Portfolio Website</title>
+</head>
+
+
+
+<!-------------------------------------------MENYN-->
+<header class="site-header">
+    <a href="#" class="logo">Ida Madelén Andersson</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label">
+        <i class="fas fa-bars"></i>
+    </label>
+    <nav class="nav-menu">
+        <a href="index.html#home" class="active">Home</a>
+        <a href="index.html#profile-and-competence">Profile and Competence</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+</header>
+
+
+<!-------------------------------------------HEADER-->
+    <section id="home" class="home-section">
+        <div class="home-img">
+            <img src="Skiss.png" alt="Illustration">
+        </div>
+        <div class="home-content">
+            <h1>Hi, It's <span>Ida</span></h1>
+            <h3 class="typing-text">I'm a <span> Digital Designer </span></h3>
+            <p>I'm studying Digital Design at Yrgo, focusing on UX/UI design, web development, and visual communication. I’m passionate about creating user-friendly, visually appealing digital products that solve real problems. Excited to apply my skills through internships and projects while connecting with professionals in design and tech!</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <a href="#" class="btn hire-btn">Hire me</a>
+        </div>
+    </section>
+
+
+<!-------------------------------------------BOXAR-->
+<section id="profile-and-competence" class="profile-competence-section">
+    <h1>Profile & Competence</h1>
+    <div class="profile-competence-container">
+        <div class="skills">
+            <h3>Skills</h3>
+            <p>Figma</p>
+            <p>Illustrator</p>
+            <p>Procreate</p>
+        </div>
+        <div class="education">
+            <h3>Education</h3>
+            <p>Art College Inredning och Design.</p>
+            <p>Digital Design Yrgo 2024-2026.</p>
+        </div>
+        <div class="experiences">
+            <h3>Experiences</h3>
+            <p>Stockholm Furniture Fair. Our stool "VågVila," designed for waiting areas in public spaces.</p>
+        </div>
+    </div>
+</section>
+<!-------------------------------------------PROJEKT-->
+    <section id="projects" class="projects-section">
+        <h1>Projects</h1>
+        <div class="project-grid">
+            <a href="html.index.mönster.html" class="project">
+                <img src="pillowcase1.jpg" alt="Mönsterkollektion">
+                <h3>Pattern Collection</h3>
+            </a>
+            <a href="projekt3.html" class="project">
+                <img src="omslagkokbok.png" alt="Kokbok Moules Frites">
+                <h3>Moules Frites</h3>
+            </a>
+            <a href="html.index.greenspendr.html" class="project">
+                <img src="greenspendr.png" alt="GreenSpendr">
+                <h3>GreenSpendr</h3>
+            </a>
+            <a href="projekt4.html" class="project">
+                <img src="example02_amica.png" alt="Amica">
+                <h3>Amica</h3>
+            </a>
+            <a href="html.index.maya.html" class="project">
+                <img src="omslagmaya.png" alt="Maya och drömstjärnan">
+                <h3>Maya and the dream star</h3>
+            </a>
+            <a href="projekt6.html" class="project">
+                <img src="vågvila.png" alt="Pallprojekt vågvila">
+                <h3>VågVila</h3>
+            </a>
+        </div>
+    </section>
+
+
+
+<!-------------------------------------------KONTAKT-->
+
+<section class="contact" id="contact">
+        <h1 class="contact-heading">Contact Me<i class="fa-solid fa-face-smile"></i>
+        </h1>
+        <form action="mailto:idaandersson0223@gmail.com" method="post" enctype="text/plain" class="contact-form">
+            <label for="name">Namn:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Meddelande:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Skicka</button>
+        </form>
+    </div>
+</section>
+
+<!-------------------------------------------FOOTER-->
+    <footer class="site-footer">
+        <p>&copy; 2024 Ida Madelén Andersson.</p>
+    </footer>
+
+
+
+<!--------------------------------------------------------ANIMATION PÅ TEXTENI HEADERN-->
+
+    <script>
+        const typewriterTexts = ["Visual Artist", "UX/UI Designer", "Digital Creator"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let currentWord = "";
+
+        function type() {
+            if (charIndex < typewriterTexts[textIndex].length) {
+                currentWord += typewriterTexts[textIndex].charAt(charIndex);
+                document.querySelector(".typing-text span").textContent = currentWord;
+                charIndex++;
+                setTimeout(type, 150);
+            } else {
+                setTimeout(erase, 1000);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                currentWord = currentWord.slice(0, -1);
+                document.querySelector(".typing-text span").textContent = currentWord;
+                charIndex--;
+                setTimeout(erase, 100);
+            } else {
+                textIndex = (textIndex + 1) % typewriterTexts.length;
+                charIndex = 0;
+                setTimeout(type, 150);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(type, 500);
+        });
+    </script>
+    
+</body>
+
+</html>
